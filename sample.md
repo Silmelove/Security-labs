@@ -90,7 +90,7 @@ dd if=origin.bmp of=header.bin bs=1 count=54
 dd if=origin.bmp of=body.bin bs=1 skip=54
 ```
 
-<img width="500" alt="Screenshot" src="https://github.com/AlexanderSlokov/Security-Labs-Submission/blob/main/asset/encryptingLargeMessage7.png?raw=true"><br>
+
 
 ## 3. Encrypt the body using CBC mode:
 
@@ -102,7 +102,6 @@ openssl enc -aes-256-cbc -nosalt -in body.bin -out encrypted_body.bin -K 0011223
 
 <span>*After using the `cat` command to look at the `encrypted_body.bin`, we can see it was fully encrypted.*</span><br>
 
-<img width="500" alt="Screenshot" src="https://github.com/AlexanderSlokov/Security-Labs-Submission/blob/main/asset/encryptingLargeMessage8.png?raw=true"><br>
 
 ## 4. Combine the header and encrypted body:
 
@@ -110,4 +109,4 @@ openssl enc -aes-256-cbc -nosalt -in body.bin -out encrypted_body.bin -K 0011223
 cat header.bin encrypted_body.bin > partially_encrypted.bmp
 ```
 
-<img width="500" alt="Screenshot" src="https://github.com/AlexanderSlokov/Security-Labs-Submission/blob/main/asset/encryptingLargeMessage9.png?raw=true"><br>
+
