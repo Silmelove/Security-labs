@@ -91,3 +91,21 @@ Mã hóa khóa AES (aes_key.bin) bằng khóa công khai RSA của vm2:
 ```openssl rsautl -encrypt -inkey public_key.pem -pubin -in aes_key.bin -out aes_key.bin.enc```
 
 Lệnh này sẽ mã hóa khóa AES (aes_key.bin) bằng khóa công khai RSA và lưu kết quả vào``` file aes_key.bin.enc```
+
+Bước 5: Giải mã khóa AES trên vm2
+
+Trên vm2 (máy nhận):
+
+Giải mã khóa AES  ```(aes_key.bin.enc)``` bằng khóa riêng RSA của vm2:
+
+```openssl rsautl -decrypt -inkey private_key.pem -in aes_key.bin.enc -out aes_key.bin```
+
+Lệnh này sử dụng khóa riêng RSA của vm2 để giải mã khóa AES và lưu nó vào ```file aes_key.bin.```
+
+Bước 6: Giải mã file với AES trên vm2
+
+Trên vm2 (máy nhận):
+
+Giải mã file với khóa AES đã giải mã:
+
+```openssl enc -d -aes-256-cbc -in file_to_transfer.txt.enc -out file_to_transfer.txt -pass f```
